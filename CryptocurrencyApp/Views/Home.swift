@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @State private var activeTag: String = "All"
+    var animation: Namespace.ID
     
     var body: some View {
         ScrollView(.vertical) {
@@ -79,6 +80,7 @@ struct Home: View {
                             if activeTag == tag {
                                 Capsule()
                                     .fill(Color.black)
+                                    .matchedGeometryEffect(id: "TAGS", in: animation)
                             } else {
                                 Capsule()
                                     .fill(Color.gray.opacity(0.2))

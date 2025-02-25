@@ -19,7 +19,7 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $currentTab) {
-                Home()
+                Home(animation: animation)
                     .tag(Tab.home)
                 
                 Text("Note")
