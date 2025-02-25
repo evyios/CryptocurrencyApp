@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct Home: View {
+    
+    @State private var activeTag: String = "All"
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(spacing: 15) {
                 HomeHeader()
+                
+                Tags()
             }
             .padding(15)
             // Поскольку Tab Bar находится в ZStack
@@ -27,7 +32,7 @@ struct Home: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 10)
+                .padding(.leading, 3)
             
             Button {
                 
@@ -43,24 +48,55 @@ struct Home: View {
                     }
             }
             Button {
-            
+                
             } label: {
                 Image(systemName: "magnifyingglass")
                     .font(.title3)
                     .foregroundStyle(.gray)
                     .frame(width: 40, height: 40)
-
+                
                     .rotationEffect(Angle(degrees: 90))
                     .background {
                         Circle()
                             .stroke(Color.gray.opacity(0.4), lineWidth: 2)
                     }
             }
-
+            
         }
     }
+    
+    @ViewBuilder
+    func Tags() -> some View {
+        ScrollView(.horizontal) {
+            HStack(spacing: 10) {
+                ForEach(tags, id: \.self) { tag in
+                    Text(tag)
+                        .font(.callout)
+                        .foregroundStyle(activeTag == tag ? .white : .black.opacity(0.6))
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+                        .background {
+                            if activeTag == tag {
+                                Capsule()
+                                    .fill(Color.black)
+                            } else {
+                                Capsule()
+                                    .fill(Color.gray.opacity(0.2))
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                activeTag = tag
+                            }
+                        }
+                }
+            }
+            .padding(.horizontal, 3)
+        }
+    }
+    var tags: [String] = ["All", "DeFi", "RWA", "Gaming", "DePin", "AI", "Meme"]
 }
-
+    
 #Preview {
     ContentView()
 }
