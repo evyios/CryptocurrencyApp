@@ -68,7 +68,7 @@ struct Home: View {
     
     @ViewBuilder
     func Tags() -> some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(tags, id: \.self) { tag in
                     Text(tag)
@@ -96,6 +96,7 @@ struct Home: View {
             .padding(.horizontal, 3)
         }
     }
+    
     var tags: [String] = ["All", "DeFi", "RWA", "Gaming", "DePin", "AI", "Meme"]
 }
     
