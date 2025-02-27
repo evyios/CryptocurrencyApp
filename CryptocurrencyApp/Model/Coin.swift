@@ -56,7 +56,6 @@ struct Coin: Identifiable, Codable {
     let price: Double
     let marketCap, marketRank: Double?
     let totalVolume: Double?
-    let priceChange24H: Double?
     let priceChangePercentage24H: Double?
     let ath: Double?
     let athChangePercentage: Double?
@@ -71,7 +70,6 @@ struct Coin: Identifiable, Codable {
         case marketCap = "market_cap"
         case marketRank = "market_cap_rank"
         case totalVolume = "total_volume"
-        case priceChange24H = "price_change_24h"
         case priceChangePercentage24H = "price_change_percentage_24h"
         case ath
         case athChangePercentage = "ath_change_percentage"
