@@ -12,7 +12,27 @@ struct SingleCoin: View {
     let coin: Coin
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 0) {
+            Text("\(coin.rank)")
+                .font(.caption)
+                .foregroundStyle(.black)
+                .frame(minWidth: 30)
+            Circle()
+                .frame(width: 30, height: 30)
+            Text(coin.symbol.uppercased())
+                .font(.headline)
+                .padding(.leading, 7)
+            
+            Spacer()
+            
+            HStack {
+                Text("\(coin.price)")
+                    .bold()
+                    .foregroundStyle(.black)
+                Text("\(coin.priceChangePercentage24H ?? 0)%")
+                    .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
+            }
+        }
     }
 }
 

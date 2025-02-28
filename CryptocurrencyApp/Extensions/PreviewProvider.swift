@@ -8,12 +8,6 @@
 import Foundation
 import SwiftUI
 
-//extension PreviewProvider {
-//
-//    static var dev: CoinPreview {
-//        return CoinPreview.instance
-//    }
-//}
 
 class CoinPreview {
     

@@ -78,4 +78,8 @@ struct Coin: Identifiable, Codable {
         case atlChangePercentage = "atl_change_percentage"
         case atlDate = "atl_date"
     }
+    
+    var rank: Int {
+        return Int(marketRank ?? 0)
+    }
 }
