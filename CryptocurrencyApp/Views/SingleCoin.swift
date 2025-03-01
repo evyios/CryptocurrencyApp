@@ -29,7 +29,7 @@ struct SingleCoin: View {
                 Text(coin.price.currencyFormat())
                     .bold()
                     .foregroundStyle(.black)
-                Text("\(coin.priceChangePercentage24H ?? 0)%")
+                Text(coin.priceChangePercentage24H?.percentageFormat() ?? "")
                     .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
             }
         }

@@ -26,4 +26,8 @@ extension Double {
         let number = NSNumber(value: self)
         return formatter.string(from: number) ?? "$0.00"
     }
+    
+    func percentageFormat() -> String {
+        return String(format: "%.2f%%", self)
+    }
 }
