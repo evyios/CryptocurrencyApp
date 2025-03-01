@@ -26,7 +26,7 @@ struct SingleCoin: View {
             Spacer()
             
             HStack {
-                Text("\(coin.price)")
+                Text(coin.price.currencyFormat())
                     .bold()
                     .foregroundStyle(.black)
                 Text("\(coin.priceChangePercentage24H ?? 0)%")
