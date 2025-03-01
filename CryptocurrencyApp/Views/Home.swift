@@ -13,17 +13,16 @@ struct Home: View {
     var animation: Namespace.ID
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 15) {
-                HomeHeader()
-                
-                Tags()
-            }
-            .padding(15)
-            // Поскольку Tab Bar находится в ZStack
-            .padding(.bottom, 50)
+        VStack(spacing: 15) {
+            HomeHeader()
+            
+            Tags()
+            
+            Spacer(minLength: 0)
         }
-        .padding(.bottom, 5)
+        .padding(12)
+        // Поскольку Tab Bar находится в ZStack
+        .padding(.bottom, 50)
     }
     
     @ViewBuilder

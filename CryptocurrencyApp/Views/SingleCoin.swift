@@ -26,6 +26,7 @@ struct SingleCoin: View {
                 .font(.subheadline)
                 .padding(.leading, 5)
             Text(coin.priceChangePercentage24H?.percentageFormat() ?? "")
+                .font(.subheadline)
                 .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
                 .padding(.leading, 10)
             
