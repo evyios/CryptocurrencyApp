@@ -20,7 +20,7 @@ struct Home: View {
             
             Spacer(minLength: 0)
         }
-        .padding(12)
+        .padding(.horizontal,12)
         // Поскольку Tab Bar находится в ZStack
         .padding(.bottom, 50)
     }

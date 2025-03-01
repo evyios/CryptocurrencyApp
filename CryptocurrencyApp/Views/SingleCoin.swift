@@ -36,7 +36,6 @@ struct SingleCoin: View {
                     .bold()
                     .foregroundStyle(.black)
         }
-        .padding(.trailing)
     }
 }
 
