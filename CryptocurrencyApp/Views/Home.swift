@@ -55,7 +55,6 @@ struct Home: View {
                     .font(.title3)
                     .foregroundStyle(.gray)
                     .frame(width: 40, height: 40)
-                
                     .rotationEffect(Angle(degrees: 90))
                     .background {
                         Circle()

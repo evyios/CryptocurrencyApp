@@ -19,20 +19,23 @@ struct SingleCoin: View {
                 .frame(minWidth: 30)
             Circle()
                 .frame(width: 30, height: 30)
-            Text(coin.symbol.uppercased())
+            Text(coin.name)
                 .font(.headline)
                 .padding(.leading, 7)
+            Text("・\(coin.symbol.uppercased())・")
+                .font(.subheadline)
+                .padding(.leading, 5)
+            Text(coin.priceChangePercentage24H?.percentageFormat() ?? "")
+                .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
+                .padding(.leading, 10)
             
             Spacer()
             
-            HStack {
                 Text(coin.price.currencyFormat())
                     .bold()
                     .foregroundStyle(.black)
-                Text(coin.priceChangePercentage24H?.percentageFormat() ?? "")
-                    .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
-            }
         }
+        .padding(.trailing)
     }
 }
 
