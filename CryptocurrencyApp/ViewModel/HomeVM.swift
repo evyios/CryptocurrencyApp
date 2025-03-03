@@ -10,4 +10,11 @@ import Foundation
 
 class HomeVM: ObservableObject {
     
+    @Published var allCoins: [Coin] = []
+    
+    init () {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.allCoins.append(CoinPreview.instance.coin)
+        }
+    }
 }

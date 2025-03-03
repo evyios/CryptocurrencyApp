@@ -14,6 +14,8 @@ class CoinPreview {
     static let instance = CoinPreview()
     private init() {}
     
+    let homeVM = HomeVM()
+    
     let coin = Coin(id: "bitcoin",
                     symbol: "btc",
                     name: "Bitcoin",

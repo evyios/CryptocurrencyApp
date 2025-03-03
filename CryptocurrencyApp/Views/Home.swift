@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Home: View {
     
+    @EnvironmentObject private var vm: HomeVM
     @State private var activeTag: String = "All"
     var animation: Namespace.ID
     
@@ -17,6 +18,9 @@ struct Home: View {
             HomeHeader()
             
             Tags()
+            
+            columsName
+            coinsList
             
             Spacer(minLength: 0)
         }
@@ -99,5 +103,39 @@ struct Home: View {
 }
     
 #Preview {
-    ContentView()
+    NavigationStack {
+        ContentView()
+            .toolbar(.hidden)
+    }
+    .environmentObject(CoinPreview.instance.homeVM)
+}
+
+
+extension Home {
+    private var coinsList: some View {
+        List {
+            ForEach(vm.allCoins) { coin in
+                SingleCoin(coin: coin)
+                    .listRowInsets(.init(top: 10, leading: -12, bottom: 10, trailing: 5))
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    private var columsName: some View {
+        HStack {
+            Text("#")
+                .padding(.leading, -2)
+                .padding(.trailing, 41)
+            Text("Name")
+                .padding(.trailing, 93)
+            Text("24h %")
+                .padding(.trailing,25)
+            Spacer()
+            Text("Price")
+                .padding(.trailing, 5)
+        }
+        .font(.caption)
+        .foregroundStyle(.black.opacity(0.4))
+    }
 }
