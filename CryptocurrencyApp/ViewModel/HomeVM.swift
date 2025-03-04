@@ -6,15 +6,24 @@
 //
 
 import Foundation
+import Combine
 
 
 class HomeVM: ObservableObject {
     
     @Published var allCoins: [Coin] = []
     
+    private let fetchCoins = DataSource()
+    private var cancellables: Set<AnyCancellable> = []
+    
     init () {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.allCoins.append(CoinPreview.instance.coin)
-        }
+        
+    }
+    func subscribeToCoins() {
+        fetchCoins.$allCoins
+            .sink { [weak self] downloadedCoins in
+                self?.allCoins = downloadedCoins
+            }
+            .store(in: &cancellables)
     }
 }
