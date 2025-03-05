@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     
+    @StateObject private var vm: HomeVM = .init()
+    
     @State var currentTab: Tab = .home
     @Namespace var animation
     
@@ -20,6 +22,7 @@ struct MainView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $currentTab) {
                 Home(animation: animation)
+                    .environmentObject(vm)
                     .tag(Tab.home)
                 
                 Text("Note")
