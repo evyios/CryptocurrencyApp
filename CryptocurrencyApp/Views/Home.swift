@@ -125,16 +125,13 @@ extension Home {
     private var columsName: some View {
         HStack {
             Text("#")
-                .padding(.leading, -2)
-                .padding(.trailing, 41)
-            Text("Name")
-                .padding(.trailing, 93)
-            Text("24h %")
-                .padding(.trailing,25)
+                
+            Text("Name ⎜ 24h %")
+                .frame(width: UIScreen.main.bounds.width / 2.2)
             Spacer()
             Text("Price")
-                .padding(.trailing, 5)
         }
+        .padding(3)
         .font(.caption)
         .foregroundStyle(.black.opacity(0.4))
     }
