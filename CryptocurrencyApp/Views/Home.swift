@@ -26,7 +26,7 @@ struct Home: View {
         }
         .padding(.horizontal,12)
         // Поскольку Tab Bar находится в ZStack
-        .padding(.bottom, 50)
+        .padding(.bottom, 52)
     }
     
     @ViewBuilder
@@ -116,7 +116,7 @@ extension Home {
         List {
             ForEach(vm.allCoins) { coin in
                 SingleCoin(coin: coin)
-                    .listRowInsets(.init(top: 10, leading: -12, bottom: 10, trailing: 5))
+                    .listRowInsets(.init(top: 10, leading: 1, bottom: 10, trailing: 5))
             }
         }
         .listStyle(.plain)

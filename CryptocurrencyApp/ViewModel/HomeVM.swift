@@ -17,8 +17,9 @@ class HomeVM: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init () {
-        
+        subscribeToCoins()
     }
+    
     func subscribeToCoins() {
         fetchCoins.$allCoins
             .sink { [weak self] downloadedCoins in
