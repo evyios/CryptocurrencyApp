@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct SingleCoin: View {
     
@@ -17,8 +18,19 @@ struct SingleCoin: View {
                 .font(.caption)
                 .foregroundStyle(.black)
                 .frame(minWidth: 10)
-            Circle()
-                .frame(width: 30, height: 30)
+            
+            CachedAsyncImage(url: URL(string: coin.image), transaction: Transaction(animation: .easeInOut)) { item in
+                if let image = item.image {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30, height: 30)
+                } else {
+                    HStack {
+                        ProgressView()
+                    }
+                }
+            }
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(coin.name)

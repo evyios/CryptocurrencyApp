@@ -81,7 +81,7 @@ struct Home: View {
                         .background {
                             if activeTag == tag {
                                 Capsule()
-                                    .fill(Color.black)
+                                    .fill(Color("main"))
                                     .matchedGeometryEffect(id: "TAGS", in: animation)
                             } else {
                                 Capsule()
