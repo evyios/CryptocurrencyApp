@@ -8,23 +8,9 @@
 import Foundation
 
 extension Double {
-    
-    private var formatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.usesGroupingSeparator = true
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "USD"
-        formatter.currencySymbol = "$"
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 6
-        return formatter
-    }
-    
-    
+      
     func currencyFormat() -> String {
-        
-        let number = NSNumber(value: self)
-        return formatter.string(from: number) ?? "$0.00"
+        return String(format: "$ %.2f", self)
     }
     
     func percentageFormat() -> String {
