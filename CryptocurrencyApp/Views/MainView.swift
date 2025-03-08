@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @StateObject private var vm: HomeVM = .init()
+    @StateObject var sharedData: SharedData = .init()
     
     @State var currentTab: Tab = .home
     @Namespace var animation
@@ -22,7 +22,7 @@ struct MainView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $currentTab) {
                 Home(animation: animation)
-                    .environmentObject(vm)
+                    .environmentObject(sharedData)
                     .tag(Tab.home)
                 
                 Text("Note")
@@ -35,6 +35,14 @@ struct MainView: View {
                     .tag(Tab.profile)
             }
             TabBar()
+        }
+        .overlay {
+            ZStack {
+                if let coin = sharedData.tappedCoin, sharedData.showDetails {
+                    DetailView(coin: coin)
+                        .environmentObject(sharedData)
+                }
+            }
         }
     }
     

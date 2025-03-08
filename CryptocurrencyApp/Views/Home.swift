@@ -9,9 +9,13 @@ import SwiftUI
 
 struct Home: View {
     
-    @EnvironmentObject private var vm: HomeVM
+    @StateObject var vm: HomeVM = .init()
+    @EnvironmentObject var sharedData: SharedData
     @State private var activeTag: String = "All"
     var animation: Namespace.ID
+    
+//    @State private var tappedCoin: Coin?
+//    @State private var showDetails: Bool = false
     
     var body: some View {
         VStack(spacing: 15) {
@@ -27,6 +31,12 @@ struct Home: View {
         .padding(.horizontal,12)
         // Поскольку Tab Bar находится в ZStack
         .padding(.bottom, 52)
+//        .background {
+//            NavigationLink(destination: DetailView(coin: $tappedCoin),
+//                           isActive: $showDetails) {
+//                EmptyView()
+//            }
+//        }
     }
     
     @ViewBuilder
@@ -117,6 +127,10 @@ extension Home {
             ForEach(vm.allCoins) { coin in
                 SingleCoin(coin: coin)
                     .listRowInsets(.init(top: 10, leading: 1, bottom: 10, trailing: 5))
+                    .onTapGesture {
+                        sharedData.showDetails = true
+                        sharedData.tappedCoin = coin
+                    }
             }
         }
         .listStyle(.plain)

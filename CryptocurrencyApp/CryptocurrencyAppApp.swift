@@ -10,15 +10,12 @@ import SwiftUI
 @main
 struct CryptocurrencyAppApp: App {
     
-    @StateObject private var vm: HomeVM = .init()
-    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
                 ContentView()
                     .toolbar(.hidden)
             }
-            .environmentObject(vm)
         }
     }
 }
