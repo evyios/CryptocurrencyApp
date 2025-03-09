@@ -54,6 +54,9 @@ struct SingleCoin: View {
                     .bold()
                     .foregroundStyle(.black)
         }
+        .background {
+            Color.black.opacity(0.001)
+        }
     }
 }
 

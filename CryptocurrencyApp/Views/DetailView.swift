@@ -12,7 +12,14 @@ struct DetailView: View {
     let coin: Coin?
     
     var body: some View {
-        Text(coin?.name ?? "")
+        VStack {
+            Text(coin?.name ?? "")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background {
+            Color.white
+        }
     }
 }
 
