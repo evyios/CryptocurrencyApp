@@ -9,20 +9,24 @@ import SwiftUI
 
 struct DetailView: View {
     
-    let coin: Coin?
+    @StateObject var vm: DetailVM
+    
+    init(coin: Coin) {
+        _vm = StateObject(wrappedValue: DetailVM(coin: coin))
+    }
     
     var body: some View {
-        VStack {
-            Text(coin?.name ?? "")
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("coin")
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
-        .background {
-            Color.white
-        }
+        .navigationTitle(vm.coin.name)
     }
 }
 
 #Preview {
-    DetailView(coin: CoinPreview.instance.coin)
+    NavigationStack {
+        DetailView(coin: CoinPreview.instance.coin)
+    }
 }
