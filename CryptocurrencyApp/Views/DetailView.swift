@@ -9,7 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @StateObject var vm: DetailVM
+    @StateObject private var vm: DetailVM
+    private var columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     init(coin: Coin) {
         _vm = StateObject(wrappedValue: DetailVM(coin: coin))
@@ -18,8 +24,32 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text("coin")
+                Text("")
+                    .frame(height: 150)
+                
+                Text("Overview")
+                    .font(.title)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Divider()
+                
+                LazyVGrid(columns: columns,
+                          alignment: .center,
+                          spacing: 30) {
+                    Text("1")
+                    Text("2")
+                    Text("3")
+                    Text("4")
+                }
+                
+                
+                Text("Additional Information")
+                    .font(.title)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Divider()
             }
+            .padding()
         }
         .navigationTitle(vm.coin.name)
     }
