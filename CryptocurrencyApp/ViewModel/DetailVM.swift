@@ -11,7 +11,9 @@ import  Combine
 
 class DetailVM: ObservableObject {
     
-    let coin: Coin
+    @Published var coin: Coin
+    @Published var coinDescription: String? = nil
+    
     private let coinDetailService: DetailSource
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,8 +25,8 @@ class DetailVM: ObservableObject {
     
     private func subscribeToCoinDetail() {
         coinDetailService.$coinDetails
-            .sink { downloadedCoinDetails in
-                print("recived coin details")
+            .sink { [weak self] downloadedCoinDetails in
+                self?.coinDescription = downloadedCoinDetails?.description?.en
             }
             .store(in: &cancellables)
     }

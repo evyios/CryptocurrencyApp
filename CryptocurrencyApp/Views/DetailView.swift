@@ -33,6 +33,12 @@ struct DetailView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
                 
+                ZStack {
+                    if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                        Text(coinDescription)
+                    }
+                }
+                
                 LazyVGrid(columns: columns,
                           alignment: .center,
                           spacing: 30) {
