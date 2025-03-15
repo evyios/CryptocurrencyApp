@@ -35,7 +35,21 @@ struct DetailView: View {
                 
                 ZStack {
                     if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
-                        Text(coinDescription)
+                        VStack(alignment: .leading) {
+                            Text(coinDescription)
+                                .lineLimit(3)
+                                .font(.callout)
+                            
+                            Button {
+                                
+                            } label: {
+                                Text("Read more...")
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                    .padding(.vertical, 1)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 
