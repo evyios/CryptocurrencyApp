@@ -23,8 +23,30 @@ struct DetailView: View {
         VStack {
             VStack {
                 header
+                Image(systemName: "questionmark.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 250, height: 250)
+                
             }
+            .frame(height: UIScreen.main.bounds.height / 2.7)
+            .zIndex(1)
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 15) {
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                Color.white
+                    .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 25))
+                    .ignoresSafeArea()
+            }
+            .zIndex(0)
         }
+        .background(Color("background"))
     }
 }
 
@@ -42,6 +64,11 @@ extension DetailView {
             } label: {
                 Image(systemName: "arrow.left")
             }
+            
+            Text(coin.name)
+                .font(.title)
+                .bold()
+                .padding(.leading,25)
             Spacer()
             
             Button {
