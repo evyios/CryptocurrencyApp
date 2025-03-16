@@ -32,11 +32,41 @@ struct DetailView: View {
             .frame(height: UIScreen.main.bounds.height / 2.7)
             .zIndex(1)
             
+            
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 15) {
+                    ZStack {
+                   if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
+                       VStack(alignment: .leading) {
+                           Text(coinDescription)
+                               .lineLimit(3)
+                               .font(.callout)
+                               .foregroundStyle(.gray)
+                           
+                           Button {
+                               
+                           } label: {
+                               Label {
+                                   Image(systemName: "arrow.right")
+                               } icon: {
+                                   Text("Read more")
+                                       .font(.subheadline)
+                                       .fontWeight(.bold)
+                                       .padding(.vertical, 1)
+                               }
+                           }
+                           .foregroundStyle(.main)
+                       }
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                   }
+                   }
+                    
+                
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding([.horizontal,.bottom],20)
+                .padding(.top,25)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background {
@@ -80,26 +110,6 @@ extension DetailView {
         .font(.title2)
         .foregroundStyle(.black.opacity(0.8))
         .padding(10)
-        .padding(.trailing,-2)
+        .padding(.trailing,2)
     }
 }
-
-// ZStack {
-//if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
-//    VStack(alignment: .leading) {
-//        Text(coinDescription)
-//            .lineLimit(3)
-//            .font(.callout)
-//        
-//        Button {
-//            
-//        } label: {
-//            Text("Read more...")
-//                .font(.subheadline)
-//                .fontWeight(.bold)
-//                .padding(.vertical, 1)
-//        }
-//    }
-//    .frame(maxWidth: .infinity, alignment: .leading)
-//}
-//}
