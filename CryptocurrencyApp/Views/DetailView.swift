@@ -59,9 +59,10 @@ struct DetailView: View {
                        }
                        .frame(maxWidth: .infinity, alignment: .leading)
                    }
-                   }
+                }
                     
-                
+                    DetailStatistics(coin: coin)
+                        .padding(.top,13)
                     
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

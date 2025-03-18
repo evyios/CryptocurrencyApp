@@ -25,7 +25,7 @@ class CoinPreview {
                     marketRank: 1,
                     totalVolume: 69075964521,
                     priceChangePercentage24H: 1.39234,
-                    ath: 108.824,
+                    ath: 108824,
                     athChangePercentage: -9.24909,
                     athDate: "2021-04-14T11:54:46.763Z",
                     atl: 0.257,

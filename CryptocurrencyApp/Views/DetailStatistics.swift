@@ -51,7 +51,25 @@ struct DetailStatistics: View {
                         .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
                 }
                 
+                HStack(spacing: 10) {
+                    Text("All Time High:")
+                        .font(.subheadline)
+                        .foregroundStyle(.black.opacity(0.4))
+                    
+                        Text(coin.ath?.currencyFormat() ?? "")
+                            .bold()
             }
+                .padding(.top,25)
+                
+                HStack(spacing: 10) {
+                    Text("All Time Low:")
+                        .font(.subheadline)
+                        .foregroundStyle(.black.opacity(0.4))
+                    
+                    Text(coin.atl?.currencyFormat() ?? "")
+                            .bold()
+            }
+        }
     }
 }
 
