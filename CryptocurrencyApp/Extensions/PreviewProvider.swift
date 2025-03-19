@@ -27,7 +27,7 @@ class CoinPreview {
                     priceChangePercentage24H: 1.39234,
                     ath: 108824,
                     athChangePercentage: -9.24909,
-                    athDate: "2021-04-14T11:54:46.763Z",
+                    athDate: "2025-01-19T11:15:27.957Z",
                     atl: 0.257,
                     atlChangePercentage: 86630.1867,
                     atlDate: "2013-07-06T00:00:00.000Z")

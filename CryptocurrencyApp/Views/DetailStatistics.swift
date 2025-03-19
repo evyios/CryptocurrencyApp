@@ -12,7 +12,7 @@ struct DetailStatistics: View {
     let coin: Coin
     
     var body: some View {
-            VStack(alignment: .leading, spacing: 7) {
+            VStack(alignment: .leading, spacing: 5) {
                 
                 HStack(spacing: 10) {
                     Text("Current price:")
@@ -51,24 +51,35 @@ struct DetailStatistics: View {
                         .foregroundStyle((coin.priceChangePercentage24H ?? 0) >= 0 ? Color("darkGreen") : Color("darkRed"))
                 }
                 
-                HStack(spacing: 10) {
-                    Text("All Time High:")
-                        .font(.subheadline)
-                        .foregroundStyle(.black.opacity(0.4))
-                    
-                        Text(coin.ath?.currencyFormat() ?? "")
-                            .bold()
+                HStack(spacing: 30) {
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 10) {
+                            Text("All Time High:")
+                                .font(.subheadline)
+                                .foregroundStyle(.black.opacity(0.4))
+                            
+                                Text(coin.ath?.currencyFormat() ?? "")
+                                    .bold()
+                    }
+                        
+                        HStack(spacing: 10) {
+                            HStack {
+                                Text("All Time Low:")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.black.opacity(0.4))
+                                
+                                Text(coin.atl?.currencyFormat() ?? "")
+                                    .bold()
+                                
+                                Text(coin.atlDate?.convertDateString() ?? "")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.gray)
+                        }
+                    }
+                }
             }
-                .padding(.top,25)
-                
-                HStack(spacing: 10) {
-                    Text("All Time Low:")
-                        .font(.subheadline)
-                        .foregroundStyle(.black.opacity(0.4))
-                    
-                    Text(coin.atl?.currencyFormat() ?? "")
-                            .bold()
-            }
+                .padding(.top,40)
         }
     }
 }
