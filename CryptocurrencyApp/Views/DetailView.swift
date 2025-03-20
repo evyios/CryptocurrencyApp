@@ -68,6 +68,23 @@ struct DetailView: View {
                     DetailStatistics(coin: coin)
                         .padding(.top,13)
                     
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("Add to Watchlist")
+                            .font(.title3)
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding(.vertical,20)
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                Color("main")
+                                    .cornerRadius(20)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 5, y: 5)
+                            )
+                            .padding(.vertical,25)
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding([.horizontal,.bottom],20)

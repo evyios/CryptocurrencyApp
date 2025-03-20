@@ -14,9 +14,6 @@ struct Home: View {
     @State private var activeTag: String = "All"
     var animation: Namespace.ID
     
-//    @State private var tappedCoin: Coin?
-//    @State private var showDetails: Bool = false
-    
     var body: some View {
         VStack(spacing: 15) {
             HomeHeader()
