@@ -14,6 +14,8 @@ struct DetailView: View {
     @StateObject private var vm: DetailVM
     @EnvironmentObject var sharedData: SharedData
     
+    @State private var showFullDescription: Bool = false
+    
     init(coin: Coin) {
         self.coin = coin
         _vm = StateObject(wrappedValue: DetailVM(coin: coin))
@@ -39,23 +41,25 @@ struct DetailView: View {
                    if let coinDescription = vm.coinDescription, !coinDescription.isEmpty {
                        VStack(alignment: .leading) {
                            Text(coinDescription)
-                               .lineLimit(3)
+                               .lineLimit(showFullDescription ? nil : 3)
                                .font(.callout)
                                .foregroundStyle(.gray)
                            
                            Button {
-                               
+                               withAnimation(.easeInOut) {
+                                   showFullDescription.toggle()
+                               }
                            } label: {
                                Label {
-                                   Image(systemName: "arrow.right")
+                                   Image(systemName: showFullDescription ? "" : "arrow.right")
                                } icon: {
-                                   Text("Read more")
+                                   Text(showFullDescription ? "Hide" : "Full Description")
                                        .font(.subheadline)
                                        .fontWeight(.bold)
                                        .padding(.vertical, 1)
                                }
                            }
-                           .foregroundStyle(.blue)
+                           .tint(.blue)
                        }
                        .frame(maxWidth: .infinity, alignment: .leading)
                    }

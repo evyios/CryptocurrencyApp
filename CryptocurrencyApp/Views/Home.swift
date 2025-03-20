@@ -31,12 +31,7 @@ struct Home: View {
         .padding(.horizontal,12)
         // Поскольку Tab Bar находится в ZStack
         .padding(.bottom, 52)
-//        .background {
-//            NavigationLink(destination: DetailView(coin: $tappedCoin),
-//                           isActive: $showDetails) {
-//                EmptyView()
-//            }
-//        }
+
     }
     
     @ViewBuilder
