@@ -55,7 +55,7 @@ struct DetailView: View {
                                        .padding(.vertical, 1)
                                }
                            }
-                           .foregroundStyle(.main)
+                           .foregroundStyle(.blue)
                        }
                        .frame(maxWidth: .infinity, alignment: .leading)
                    }

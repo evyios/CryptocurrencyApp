@@ -70,13 +70,14 @@ struct DetailStatistics: View {
                                 
                                 Text(coin.atl?.currencyFormat() ?? "")
                                     .bold()
-                                
+                                Spacer()
                                 Text(coin.atlDate?.convertDateString() ?? "")
                                     .font(.subheadline)
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.gray)
                         }
                     }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
                 .padding(.top,40)
