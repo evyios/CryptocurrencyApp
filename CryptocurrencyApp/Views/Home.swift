@@ -120,8 +120,10 @@ extension Home {
                 SingleCoin(coin: coin)
                     .listRowInsets(.init(top: 10, leading: 1, bottom: 10, trailing: 5))
                     .onTapGesture {
-                        sharedData.showDetails = true
-                        sharedData.tappedCoin = coin
+                        withAnimation(.easeInOut) {
+                            sharedData.showDetails = true
+                            sharedData.tappedCoin = coin
+                        }
                     }
             }
         }

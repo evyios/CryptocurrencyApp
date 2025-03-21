@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct DetailView: View {
     
@@ -25,10 +26,19 @@ struct DetailView: View {
         VStack {
             VStack {
                 header
-                Image(systemName: "questionmark.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 250, height: 250)
+                
+                CachedAsyncImage(url: URL(string: coin.image), transaction: Transaction(animation: .easeInOut)) { item in
+                    if let image = item.image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 250, height: 250)
+                    } else {
+                        HStack {
+                            ProgressView()
+                        }
+                    }
+                }
                 
             }
             .frame(height: UIScreen.main.bounds.height / 2.7)
@@ -112,7 +122,9 @@ extension DetailView {
     private var header: some View {
         HStack {
             Button {
-                
+                withAnimation(.easeInOut) {
+                    sharedData.showDetails = false
+                }
             } label: {
                 Image(systemName: "arrow.left")
             }
