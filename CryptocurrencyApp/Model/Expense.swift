@@ -22,3 +22,7 @@ class Expense {
         self.date = date
     }
 }
+
+var sampleExpense: [Expense] = [
+    .init(title: "Bitcoin", description: "Bought yesterday", amount: 50000, date: .now)
+]

@@ -25,7 +25,7 @@ struct MainView: View {
                     .environmentObject(sharedData)
                     .tag(Tab.home)
                 
-                Text("Note")
+                Expenses()
                     .tag(Tab.pen)
                 
                 Text("Settings")

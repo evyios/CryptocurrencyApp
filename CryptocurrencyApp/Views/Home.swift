@@ -105,11 +105,8 @@ struct Home: View {
 }
     
 #Preview {
-    NavigationStack {
         ContentView()
-            .toolbar(.hidden)
-    }
-    .environmentObject(CoinPreview.instance.homeVM)
+           .environmentObject(CoinPreview.instance.homeVM)
 }
 
 

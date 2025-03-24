@@ -113,10 +113,8 @@ struct DetailView: View {
 }
 
 #Preview {
-    NavigationStack {
         DetailView(coin: CoinPreview.instance.coin)
     }
-}
 
 extension DetailView {
     private var header: some View {

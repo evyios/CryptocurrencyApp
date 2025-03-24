@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct CryptocurrencyAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
                 ContentView()
-                    .toolbar(.hidden)
-            }
         }
+        .modelContainer(for: Expense.self)
     }
 }
