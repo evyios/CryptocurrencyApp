@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Double {
       
@@ -42,4 +43,12 @@ extension String {
 
             return nil
         }
+}
+
+extension View {
+    func dateFormat(date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: date)
+    }
 }
