@@ -19,7 +19,22 @@ struct NewExpense: View {
                 CustomTextField("Title", "Coin Name", value: $title)
                 CustomTextField("Description", "Type something here...", value: $subtitle)
                 
-            
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Price $")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    TextField("0.00", value: $amount, formatter: numberFormatter)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical,12)
+                        .foregroundStyle(.gray)
+                        .background {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.gray.opacity(0.15))
+                        }
+                        .frame(maxWidth: 150)
+                }
             }
             .padding(15)
         }
