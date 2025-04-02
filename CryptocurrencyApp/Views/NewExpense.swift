@@ -34,11 +34,37 @@ struct NewExpense: View {
                                 .fill(Color.gray.opacity(0.15))
                         }
                         .frame(maxWidth: 150)
+                        .keyboardType(.decimalPad)
+                }
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Date")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    DatePicker("", selection: $date, displayedComponents: [.date])
+                        .datePickerStyle(.graphical)
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.gray.opacity(0.15))
+                        }
+
                 }
             }
             .padding(15)
         }
         .navigationTitle("Add new expense")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Add") {
+                    
+                }
+            }
+        }
     }
     
     @ViewBuilder
