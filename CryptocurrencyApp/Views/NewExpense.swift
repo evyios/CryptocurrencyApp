@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewExpense: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
     
     @State private var title: String = ""
     @State private var subtitle: String = ""
@@ -17,7 +21,7 @@ struct NewExpense: View {
         VStack {
             HStack(spacing: 20) {
                 Button {
-                    
+                    dismiss()
                 } label: {
                     Image(systemName: "arrow.left.circle")
                         .font(.title3)
