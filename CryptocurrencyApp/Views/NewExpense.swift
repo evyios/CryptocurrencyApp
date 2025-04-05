@@ -60,11 +60,15 @@ struct NewExpense: View {
         .navigationTitle("Add new expense")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Add") {
-                    
+                Button("Save") {
+                    save()
                 }
             }
         }
+    }
+    
+    func save() {
+        
     }
     
     @ViewBuilder

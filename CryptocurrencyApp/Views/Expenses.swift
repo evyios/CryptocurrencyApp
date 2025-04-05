@@ -12,15 +12,21 @@ struct Expenses: View {
     
     @Query(sort: [SortDescriptor(\Expense.date, order: .reverse)], animation: .snappy) private var expenses: [Expense]
     
+    @State private var addExpense: Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
-                
+                ForEach(expenses) {
+                    ExpenseDisplay(expense: $0)
+                }
             }
             .navigationTitle("Recent purchases")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: { }) {
+                    Button(action: {
+                        addExpense.toggle()
+                    }) {
                         Image(systemName: "plus.circle.fill")
                             .font(.title3)
                             .foregroundStyle(.darkGreen)
@@ -33,6 +39,9 @@ struct Expenses: View {
                         Label("No purchases so far", systemImage: "wallet.bifold")
                     }
                 }
+            }
+            .sheet(isPresented: $addExpense) {
+                NewExpense()
             }
         }
     }
