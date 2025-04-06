@@ -32,6 +32,7 @@ struct NewExpense: View {
                     .font(.headline)
                 Spacer()
                 Button("Save", action: save)
+                    .disabled(saveDisabled)
 
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -82,18 +83,17 @@ struct NewExpense: View {
                 .padding(15)
             }
         }
-//        .navigationTitle("Add new expense")
-//        .toolbar {
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button("Save") {
-//                    save()
-//                }
-//            }
-//        }
+    }
+    
+    var saveDisabled: Bool {
+        return title.isEmpty || subtitle.isEmpty || amount == .zero
     }
     
     func save() {
+        let expense = Expense(title: title, description: subtitle, amount: amount, date: date)
         
+        context.insert(expense)
+        dismiss()
     }
     
     @ViewBuilder
