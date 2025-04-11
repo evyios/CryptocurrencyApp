@@ -47,5 +47,5 @@ struct ExpenseDisplay: View {
 }
 
 #Preview {
-    ExpenseDisplay(expense: sampleExpense[0])
+    ContentView()
 }

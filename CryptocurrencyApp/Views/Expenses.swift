@@ -16,11 +16,12 @@ struct Expenses: View {
     
     var body: some View {
         NavigationStack {
-            List {
+            VStack(spacing: -15) {
                 ForEach(expenses) {
                     ExpenseDisplay(expense: $0)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .navigationTitle("Recent purchases")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
