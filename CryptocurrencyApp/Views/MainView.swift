@@ -31,7 +31,7 @@ struct MainView: View {
                 Text("Settings")
                     .tag(Tab.settings)
                 
-                Text("Profile")
+                Profile()
                     .tag(Tab.profile)
             }
             TabBar()
