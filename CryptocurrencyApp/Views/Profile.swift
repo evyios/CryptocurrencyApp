@@ -64,6 +64,32 @@ struct Profile: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
+    
+    @ViewBuilder
+    func CustomNavigationLink<Detail: View>(title: String, @ViewBuilder content: @escaping () -> Detail) -> some View {
+        
+        NavigationLink {
+            content()
+        } label: {
+            HStack {
+                Text(title)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+            }
+            .foregroundColor(.black)
+            .padding(16)
+            .background {
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color.gray.opacity(0.15))
+            }
+            .padding(.horizontal)
+            .padding(.top,10)
+        }
+    }
 }
 
 #Preview {
