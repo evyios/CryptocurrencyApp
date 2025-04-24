@@ -56,6 +56,36 @@ struct Profile: View {
                     .padding()
                     .padding(.top,10)
                     
+                    
+                    CustomNavigationLink(title: "Notifications") {
+                        Text("")
+                            .navigationTitle("Notifications")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color("background").ignoresSafeArea())
+                    }
+                    
+                    CustomNavigationLink(title: "Notifications") {
+                        Text("")
+                            .navigationTitle("Notifications")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color("background").ignoresSafeArea())
+                    }
+                    
+                    CustomNavigationLink(title: "Notifications") {
+                        Text("")
+                            .navigationTitle("Notifications")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color("background").ignoresSafeArea())
+                    }
+                    
+                    CustomNavigationLink(title: "Notifications") {
+                        Text("")
+                            .navigationTitle("Notifications")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color("background").ignoresSafeArea())
+                    }
+                    
+                    
                 }
                 .padding(.horizontal,20)
                 .padding(.vertical,20)
