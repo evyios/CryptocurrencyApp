@@ -57,9 +57,9 @@ struct Profile: View {
                     .padding(.top,10)
                     
                     
-                    CustomNavigationLink(title: "Notifications") {
+                    CustomNavigationLink(title: "Profile settings") {
                         Text("")
-                            .navigationTitle("Notifications")
+                            .navigationTitle("Profile settings")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color("background").ignoresSafeArea())
                     }
@@ -71,16 +71,16 @@ struct Profile: View {
                             .background(Color("background").ignoresSafeArea())
                     }
                     
-                    CustomNavigationLink(title: "Notifications") {
+                    CustomNavigationLink(title: "Purchase History") {
                         Text("")
-                            .navigationTitle("Notifications")
+                            .navigationTitle("Purchase History")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color("background").ignoresSafeArea())
                     }
                     
-                    CustomNavigationLink(title: "Notifications") {
+                    CustomNavigationLink(title: "Help Center") {
                         Text("")
-                            .navigationTitle("Notifications")
+                            .navigationTitle("Help Center")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color("background").ignoresSafeArea())
                     }
