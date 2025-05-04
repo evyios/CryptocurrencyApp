@@ -86,6 +86,15 @@ struct Profile: View {
                     }
                     
                     
+                    VStack(spacing: 15) {
+                        Image(systemName: "cloud.sun.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .foregroundStyle(.gray, .yellow)
+                    }
+                    .padding(.vertical,25)
+                    
                 }
                 .padding(.horizontal,20)
                 .padding(.vertical,20)
