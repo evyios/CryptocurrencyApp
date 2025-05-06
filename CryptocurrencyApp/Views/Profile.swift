@@ -91,9 +91,21 @@ struct Profile: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 50, height: 50)
-                            .foregroundStyle(.gray, .yellow)
+                            .foregroundStyle(.gray.opacity(0.4), .yellow)
+                        
+                        Text("Customize your interface. Choose between dark mode and light mode")
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding()
+                    .background {
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 2)
                     }
                     .padding(.vertical,25)
+                    .padding(.horizontal)
+                    
                     
                 }
                 .padding(.horizontal,20)
