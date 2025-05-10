@@ -141,6 +141,12 @@ struct Profile: View {
             .padding(.top,10)
         }
     }
+    
+    enum Theme: String, CaseIterable {
+        case defaultTheme = "Default"
+        case light = "Light"
+        case dark = "Dark"
+    }
 }
 
 #Preview {
