@@ -99,19 +99,7 @@ struct Profile: View {
                             .multilineTextAlignment(.center)
                         
                         
-                        HStack(spacing: 5) {
-                            ForEach(Theme.allCases, id: \.rawValue) { theme in
-                                Text(theme.rawValue)
-                                    .padding(.vertical,10)
-                                    .frame(width: 100)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color.blue.opacity(0.15))
-                                    }
-                            }
-                        }
-                        .padding(.top,15)
-                        .padding(.bottom,5)
+                        ThemePicker()
                     }
                     .padding()
                     .background {
@@ -155,6 +143,24 @@ struct Profile: View {
             .padding(.horizontal)
             .padding(.top,10)
         }
+    }
+    
+    @ViewBuilder
+    func ThemePicker() -> some View {
+        HStack(spacing: 5) {
+            ForEach(Theme.allCases, id: \.rawValue) { theme in
+                Text(theme.rawValue)
+                    .font(.callout)
+                    .padding(.vertical,7)
+                    .frame(width: 100)
+                    .background {
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(Color.blue.opacity(0.15))
+                    }
+            }
+        }
+        .padding(.top,15)
+        .padding(.bottom,5)
     }
     
     enum Theme: String, CaseIterable {
