@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Profile: View {
+    
+    @State private var activeTheme: String = "Default"
+    
     var body: some View {
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
@@ -147,16 +150,23 @@ struct Profile: View {
     
     @ViewBuilder
     func ThemePicker() -> some View {
-        HStack(spacing: 5) {
+        HStack(spacing: 10) {
             ForEach(Theme.allCases, id: \.rawValue) { theme in
                 Text(theme.rawValue)
                     .font(.callout)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(activeTheme == theme.rawValue ? .white : .gray)
                     .padding(.vertical,7)
                     .frame(width: 100)
                     .background {
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color.blue.opacity(0.15))
+                        if activeTheme == theme.rawValue {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.blue)
+                        } else {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray.opacity(0.4), lineWidth: 2)
                     }
+                }
             }
         }
         .padding(.top,15)
