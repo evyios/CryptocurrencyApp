@@ -10,6 +10,7 @@ import SwiftUI
 struct Profile: View {
     
     @State private var activeTheme: String = "Default"
+    @Namespace var animation
     
     var body: some View {
         NavigationStack {
@@ -162,11 +163,17 @@ struct Profile: View {
                         if activeTheme == theme.rawValue {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.blue)
+                                .matchedGeometryEffect(id: "THEME", in: animation)
                         } else {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.gray.opacity(0.4), lineWidth: 2)
                     }
                 }
+                    .onTapGesture {
+                        withAnimation {
+                            activeTheme = theme.rawValue
+                        }
+                    }
             }
         }
         .padding(.top,15)
