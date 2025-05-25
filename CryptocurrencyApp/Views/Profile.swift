@@ -91,7 +91,7 @@ struct Profile: View {
                     
                     
                     VStack(spacing: 15) {
-                        Image(systemName: "cloud.sun.fill")
+                        Image(systemName: activeTheme == "Dark" ? "moon.fill" : "cloud.sun.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 50, height: 50)
