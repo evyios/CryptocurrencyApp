@@ -118,8 +118,8 @@ struct Profile: View {
                 .padding(.horizontal,20)
                 .padding(.vertical,20)
             }
-            .toolbar(.hidden)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity)
+            .padding(.bottom,50)
         }
     }
     
