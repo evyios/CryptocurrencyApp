@@ -96,6 +96,7 @@ struct Profile: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray.opacity(0.4), .yellow)
+                            .matchedGeometryEffect(id: "IMAGE", in: animation)
                         
                         Text("Customize your interface. Choose between dark mode and light mode")
                             .font(.subheadline)
