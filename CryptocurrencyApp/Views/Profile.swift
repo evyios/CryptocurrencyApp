@@ -96,7 +96,7 @@ struct Profile: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray.opacity(0.4), .yellow)
-                            .animation(.interactiveSpring(response: 0.5, dampingFraction: 0.75, blendDuration: 0.75), value: activeTheme)
+                            .animation(.interactiveSpring(response: 0.35, dampingFraction: 0.5, blendDuration: 0.5), value: activeTheme)
                         
                         Text("Customize your interface. Choose between dark mode and light mode")
                             .font(.subheadline)
@@ -120,7 +120,7 @@ struct Profile: View {
                 .padding(.vertical,20)
             }
             .frame(maxWidth: .infinity)
-            .padding(.bottom,50)
+            .padding(.bottom,48)
         }
     }
     
