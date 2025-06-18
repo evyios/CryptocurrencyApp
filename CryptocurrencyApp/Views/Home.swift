@@ -12,11 +12,15 @@ struct Home: View {
     @StateObject var vm: HomeVM = .init()
     @EnvironmentObject var sharedData: SharedData
     @State private var activeTag: String = "All"
+    
+    @State private var searchText: String = ""
     var animation: Namespace.ID
     
     var body: some View {
         VStack(spacing: 15) {
             HomeHeader()
+            
+            SearchField()
             
             Tags()
             
@@ -98,6 +102,16 @@ struct Home: View {
                 }
             }
             .padding(.horizontal, 3)
+        }
+    }
+    
+    @ViewBuilder
+    func SearchField() -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: "magnifyingglass")
+                .font(.title3)
+            
+            TextField("Search something", text: $searchText)
         }
     }
     
