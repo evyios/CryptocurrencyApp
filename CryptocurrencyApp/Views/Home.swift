@@ -111,7 +111,16 @@ struct Home: View {
             Image(systemName: "magnifyingglass")
                 .font(.title3)
             
+            Divider()
+            
             TextField("Search something", text: $searchText)
+        }
+        .padding(.horizontal,15)
+        .padding(.vertical,10)
+        .frame(height: 45)
+        .background {
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color.gray.opacity(0.2))
         }
     }
     
