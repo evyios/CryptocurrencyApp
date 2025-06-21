@@ -60,11 +60,10 @@ struct Home: View {
             Button {
                 
             } label: {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: "arrowshape.turn.up.right")
                     .font(.title3)
                     .foregroundStyle(.gray)
                     .frame(width: 40, height: 40)
-                    .rotationEffect(Angle(degrees: 90))
                     .background {
                         Circle()
                             .stroke(Color.gray.opacity(0.4), lineWidth: 2)
@@ -119,9 +118,10 @@ struct Home: View {
         .padding(.vertical,10)
         .frame(height: 45)
         .background {
-            RoundedRectangle(cornerRadius: 15)
+            RoundedRectangle(cornerRadius: 25)
                 .fill(Color.gray.opacity(0.2))
         }
+        .padding(.bottom, 5)
     }
     
     var tags: [String] = ["All", "DeFi", "RWA", "Gaming", "DePin", "AI", "Meme"]
