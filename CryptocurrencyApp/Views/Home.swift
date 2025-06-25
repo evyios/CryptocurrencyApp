@@ -113,6 +113,17 @@ struct Home: View {
             Divider()
             
             TextField("Search something", text: $searchText)
+                .overlay {
+                    Image(systemName: "xmark.circle.fill")
+                        .padding(7)
+                        .offset(x: 4)
+                        .foregroundStyle(Color.main)
+                        .opacity(searchText.isEmpty ? 0 : 1)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .onTapGesture {
+                            searchText = ""
+                        }
+                }
         }
         .padding(.horizontal,15)
         .padding(.vertical,10)
