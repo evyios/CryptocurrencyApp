@@ -43,5 +43,9 @@ class HomeVM: ObservableObject {
                 }
                 return filteredCoins
             }
+            .sink { [weak self] returnedCoins in
+                self?.allCoins = returnedCoins
+            }
+            .store(in: &cancellables)
     }
 }
