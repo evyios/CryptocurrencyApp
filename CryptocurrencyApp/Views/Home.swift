@@ -13,7 +13,7 @@ struct Home: View {
     @EnvironmentObject var sharedData: SharedData
     @State private var activeTag: String = "All"
     
-    @State private var searchText: String = ""
+    @Binding var searchText: String
     var animation: Namespace.ID
     
     var body: some View {

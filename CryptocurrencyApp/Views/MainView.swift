@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @StateObject var sharedData: SharedData = .init()
+    @StateObject var vm: HomeVM = .init()
     
     @State var currentTab: Tab = .home
     @Namespace var animation
@@ -21,7 +22,7 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $currentTab) {
-                Home(animation: animation)
+                Home(searchText: $vm.searchText, animation: animation)
                     .environmentObject(sharedData)
                     .tag(Tab.home)
                 
