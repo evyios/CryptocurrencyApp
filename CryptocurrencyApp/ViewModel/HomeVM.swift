@@ -14,6 +14,7 @@ class HomeVM: ObservableObject {
     @Published var allCoins: [Coin] = []
     
     @Published var searchText: String = ""
+    @Published var searchResults: [Coin]?
     
     private let fetchCoins = DataSource()
     private var cancellables: Set<AnyCancellable> = []
