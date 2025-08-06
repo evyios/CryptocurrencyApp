@@ -45,7 +45,22 @@ struct SearchView: View {
                 if coin.isEmpty {
                     
                 } else {
-                    
+                    VStack(spacing: 10) {
+                        Image(systemName: "folder.badge.questionmark")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.top,60)
+                        
+                        Text("Item Not Found")
+                            .font(.title)
+                        
+                        Text("Try a more generic search term or try looking for another coin")
+                            .font(.title2)
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal,30)
+                    }
+                    .padding()
                 }
             }
         }
