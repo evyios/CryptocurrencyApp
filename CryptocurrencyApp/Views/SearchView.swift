@@ -43,8 +43,6 @@ struct SearchView: View {
             
             if let coin = vm.searchResults {
                 if coin.isEmpty {
-                    
-                } else {
                     VStack(spacing: 10) {
                         Image(systemName: "folder.badge.questionmark")
                             .resizable()
@@ -61,6 +59,8 @@ struct SearchView: View {
                             .padding(.horizontal,30)
                     }
                     .padding()
+                } else {
+                    
                 }
             }
         }
